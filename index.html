@@ -213,8 +213,8 @@ function showToast(message){if(!toast)return;toast.textContent=message;toast.cla
 const copyButton=document.getElementById('copyNick');
 if(copyButton)copyButton.addEventListener('click',async()=>{
   try{
-    if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText('SoraKagami')}
-    else {const field=document.createElement('textarea');field.value='SoraKagami';field.setAttribute('readonly','');field.style.position='fixed';field.style.opacity='0';document.body.appendChild(field);field.select();const ok=document.execCommand('copy');field.remove();if(!ok)throw new Error('copy failed')}
+    if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText('@SoraKagami')}
+    else {const field=document.createElement('textarea');field.value='@SoraKagami';field.setAttribute('readonly','');field.style.position='fixed';field.style.opacity='0';document.body.appendChild(field);field.select();const ok=document.execCommand('copy');field.remove();if(!ok)throw new Error('copy failed')}
     showToast('✓ Ник @SoraKagami скопирован');
   }catch(e){showToast('Не удалось скопировать — ник: @SoraKagami')}
 });
@@ -230,7 +230,7 @@ window.addEventListener('pointerleave',()=>document.body.classList.remove('curso
 resize();requestAnimationFrame(draw)})();
 // GoatCounter analytics and visitor counter.
 (()=>{
-  const siteCode='SoraKagami';
+  const siteCode='SoraKagamiExe';
   const countEl=document.getElementById('visitorCount');
   if(!countEl)return;
   if(!siteCode){
@@ -255,7 +255,7 @@ resize();requestAnimationFrame(draw)})();
       countEl.textContent=Number.isFinite(baseCount)?(baseCount+bonusByClick[counterClicks-1]).toLocaleString('en-US'):trueCount;
       counterTimer=setTimeout(()=>{counterClicks=0;refreshCount().catch(()=>{countEl.textContent=trueCount})},2600);
     }else{
-      countEl.textContent='Ты считаешь посетителей или проверяешь, насколько я популярный?';
+      countEl.textContent='Не бывает такого';
       // Send one GoatCounter event only on the fifth click; the displayed bonus numbers are visual only.
       const ping=document.createElement('img');ping.width=1;ping.height=1;ping.alt='';ping.style.position='absolute';ping.style.opacity='0';ping.src=base+'/count?p='+encodeURIComponent('/secret-counter-click')+'&t='+encodeURIComponent('Secret counter easter egg')+'&r='+encodeURIComponent(location.href);document.body.appendChild(ping);setTimeout(()=>ping.remove(),1500);
       counterClicks=0;counter.dispatchEvent(new CustomEvent('secret-counter-found'));
