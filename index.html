@@ -284,7 +284,7 @@ resize();requestAnimationFrame(draw)})();
     if(clicks>=5)unlock();
   });}
   const konata=document.getElementById('konataBuddy');
-  const storageKey='m1zucvr-secrets-v1';
+  const storageKey='SoraKagami-secrets-v1';
   let found=[];
   try{found=JSON.parse(localStorage.getItem(storageKey)||'[]');if(!Array.isArray(found))found=[];found=found.filter(id=>id!=='word')}catch(e){found=[]}
   function updateSecrets(){const count=document.getElementById('secretsCount'),fill=document.getElementById('secretsFill');if(count)count.textContent=found.length+'/5';if(fill)fill.style.width=(found.length/5*100)+'%'}
@@ -328,7 +328,7 @@ resize();requestAnimationFrame(draw)})();
     {tag:'ЗАМЕТКА 04',text:'Если эдит не получается — сделай паузу и посмотри на него свежими глазами.',sub:'И не двигай один и тот же клип туда-сюда ещё 47 раз. Хотя кого я обманываю.'},
     {tag:'ЗАМЕТКА 05',text:'Даже если день вышел странным — это ещё не финал серии.',sub:'Сохраняйся, отдыхай и попробуй снова. У тебя ещё полно серий впереди.'}
   ];
-  try{if(localStorage.getItem('m1zucvr-visited'))messages.unshift({tag:'СНОВА ЗДЕСЬ?',text:'О, ты опять здесь? У тебя сайт в закладках или ты просто потерялся?',sub:'Ладно, располагайся. Коната уже здесь.'});localStorage.setItem('m1zucvr-visited','1')}catch(e){}
+  try{if(localStorage.getItem('SoraKagami-visited'))messages.unshift({tag:'СНОВА ЗДЕСЬ?',text:'О, ты опять здесь? У тебя сайт в закладках или ты просто потерялся?',sub:'Ладно, располагайся. Коната уже здесь.'});localStorage.setItem('SoraKagami-visited','1')}catch(e){}
   let messageIndex=0;
   const msgTag=document.getElementById('konataMsgTag'),msgText=document.getElementById('konataMsgText'),msgSub=document.getElementById('konataMsgSub'),msgCount=document.getElementById('konataMsgCount'),msgDots=document.getElementById('konataMsgDots');
   function showMessage(index){messageIndex=(index+messages.length)%messages.length;const m=messages[messageIndex];msgTag.textContent=m.tag;msgText.textContent=m.text;msgSub.textContent=m.sub;msgCount.textContent=String(messageIndex+1).padStart(2,'0')+' / '+String(messages.length).padStart(2,'0');[...msgDots.children].forEach((dot,i)=>dot.setAttribute('aria-current',String(i===messageIndex)));}
@@ -360,7 +360,7 @@ const commands=[
  {icon:'?',name:'Секреты',desc:'Открыть страницу автора и перейти к секретам',keys:'easter secrets пасхалки достижения',run:()=>{const b=$('aboutOpen');if(b&&!body.classList.contains('about-mode'))b.click();setTimeout(()=>document.querySelector('.secrets-progress')?.scrollIntoView({behavior:'smooth',block:'center'}),180);}},
  {icon:'⌘',name:'Панель состояния',desc:'Показать текущие настройки интерфейса',keys:'system status диагностика',run:()=>notify('Система: '+(body.classList.contains('ambient-mode')?'атмосферный режим · ':'обычный режим · ')+(body.classList.contains('reduce-effects')?'минимум анимаций':'анимации включены')+' · акцент '+accents[accentIndex][0])},
  {icon:'✧',name:'Случайный акцент',desc:'Выбрать случайный цвет интерфейса',keys:'random цвет тема',run:()=>{let n=accentIndex;while(n===accentIndex)n=Math.floor(Math.random()*accents.length);accentIndex=n;applyAccent();try{localStorage.setItem('m1zu-accent-index',String(accentIndex))}catch(e){}notify('Новый акцент · '+accents[accentIndex][0])}},
- {icon:'↺',name:'Сбросить прогресс пасхалок',desc:'Сбросить локально найденные секреты',keys:'reset secrets progress',run:()=>{if(confirm('Сбросить найденные пасхалки на этом устройстве?')){try{localStorage.removeItem('m1zucvr-secrets-v1')}catch(e){}location.reload()}}}
+ {icon:'↺',name:'Сбросить прогресс пасхалок',desc:'Сбросить локально найденные секреты',keys:'reset secrets progress',run:()=>{if(confirm('Сбросить найденные пасхалки на этом устройстве?')){try{localStorage.removeItem('SoraKagami-secrets-v1')}catch(e){}location.reload()}}}
 ];
 const accents=[['#87CEFA','135,206,250'],['#b58cff','181,140,255'],['#8af0bd','138,240,189'],['#ff9dcf','255,157,207'],['#ffc878','255,200,120']];let accentIndex=0;
 function cycleAccent(){accentIndex=(accentIndex+1)%accents.length;applyAccent();notify('Акцент изменён · '+accents[accentIndex][0]);}
