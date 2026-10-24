@@ -202,7 +202,7 @@ konata.addEventListener('click',async()=>{
   konata.classList.remove('playing');void konata.offsetWidth;konata.classList.add('playing');
   // Fallback cleanup for mobile browsers that occasionally miss animationend.
   clearTimeout(konata._animationCleanup);konata._animationCleanup=setTimeout(()=>konata.classList.remove('playing'),650);
-  if(konataHint){konataHint.textContent='Коната говорит! ♪';konataHint.classList.add('show');clearTimeout(hintTimer);hintTimer=setTimeout(()=>konataHint.classList.remove('show'),1700)}
+  if(konataHint){konataHint.textContent='Neco Ark ♪';konataHint.classList.add('show');clearTimeout(hintTimer);hintTimer=setTimeout(()=>konataHint.classList.remove('show'),1700)}
   try{await sound.play()}catch(e){if(konataHint)konataHint.textContent='Не удалось воспроизвести звук';}
 });
 }
@@ -295,7 +295,7 @@ resize();requestAnimationFrame(draw)})();
   if(liveClock){let clockClicks=0,clockReset;liveClock.style.cursor='pointer';liveClock.title='';liveClock.addEventListener('click',()=>{clockClicks++;clearTimeout(clockReset);clockReset=setTimeout(()=>clockClicks=0,2200);if(clockClicks>=7){clockClicks=0;discover('clock','Время остановить нельзя, но секрет ты нашёл. ✦')}})}
   // Secret 2: click the floating Konata five times.
   let konataClicks=0,konataReset;
-  if(konata){konata.addEventListener('click',()=>{konataClicks++;clearTimeout(konataReset);konataReset=setTimeout(()=>konataClicks=0,2400);if(konataClicks>=5){konataClicks=0;discover('konata5','Ты пять раз нажал на меня… тебе точно нечем заняться?')}});konata.addEventListener('dblclick',()=>announce('♪ Konata says: よっ！  секрет найден!'))}
+  if(konata){konata.addEventListener('click',()=>{konataClicks++;clearTimeout(konataReset);konataReset=setTimeout(()=>konataClicks=0,2400);if(konataClicks>=5){konataClicks=0;discover('konata5','Ты пять раз нажал на меня… тебе точно нечем заняться?')}});konata.addEventListener('dblclick',()=>announce('♪ Pretty Boy Mode ！  секрет найден!'))}
   // Secret 3: tiny star in the dream card.
   const dreamStar=document.getElementById('dreamStar');if(dreamStar)dreamStar.addEventListener('click',()=>discover('dream','Если ты это нашёл, значит, ты действительно посмотрел сайт, а не только ссылки.'));
   // Secret 4: the counter interaction is wired separately; mark it on the joke text.
