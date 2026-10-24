@@ -188,7 +188,7 @@ body.reduce-effects *,body.reduce-effects *:before,body.reduce-effects *:after{a
 (()=> {
 const konata=document.getElementById('konataBuddy');
 const konataHint=document.getElementById('konataHint');
-const konataSounds=['konata-sound-1.mp3','konata-sound-2.mp3','konata-sound-3.mp3','konata-sound-4.mp3'].map(src=>new Audio(src));
+const konataSounds=['neco1.mp3','neco2.mp3','neco3.mp3','neco4.mp3'].map(src=>new Audio(src));
 konataSounds.forEach(a=>{a.preload='auto';a.volume=0.85});
 let lastSound=-1,hintTimer;
 if(konata){
