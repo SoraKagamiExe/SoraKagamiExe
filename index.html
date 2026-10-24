@@ -177,7 +177,7 @@ body.reduce-effects *,body.reduce-effects *:before,body.reduce-effects *:after{a
   </div>
   <div class="secrets-progress" aria-live="polite"><span>✦</span> Secrets found: <strong id="secretsCount">0/5</strong><span class="secrets-track"><i id="secretsFill"></i></span></div>
   <section class="konata-messages" aria-label="Сообщения от Конаты">
-    <div class="konata-msg-head"><img class="konata-msg-avatar" src="avatar-konata.jpg" alt="Коната Изуми"><div><div class="konata-msg-name">Коната Изуми</div><div class="konata-msg-status">● онлайн · сообщения для тебя</div></div><span class="konata-msg-label">KONATA FEED</span></div>
+    <div class="konata-msg-head"><img class="konata-msg-avatar" src="https://cdn.discordapp.com/attachments/994200166183747675/1563553808553082910/d90034fa8e2f37283e0343c189d66df6.png?ex=6ade0c75&is=6adcbaf5&hm=b67a0605a4b11de8fd062fda4bc92bb9dc559076e18e41ec9a29371d03ca4682&" alt="Коната Изуми"><div><div class="konata-msg-name">Sora Kagami</div><div class="konata-msg-status">● онлайн · сообщения для тебя</div></div><span class="konata-msg-label">明日はきっと大丈夫。</span></div>
     <div class="konata-msg-body" aria-live="polite" aria-atomic="true"><div class="konata-msg-tag" id="konataMsgTag">ЗАМЕТКА 01</div><div class="konata-msg-text" id="konataMsgText">Эй, ты! Не забудь иногда делать перерывы от каток и монтажа, окей?</div><div class="konata-msg-sub" id="konataMsgSub">Даже главный герой должен иногда сохраниться и отдохнуть.</div></div>
     <div class="konata-msg-controls"><button class="konata-msg-btn" id="konataMsgPrev" type="button" aria-label="Предыдущее сообщение">‹</button><button class="konata-msg-btn" id="konataMsgNext" type="button" aria-label="Следующее сообщение">›</button><span class="konata-msg-count" id="konataMsgCount">01 / 05</span><div class="konata-msg-dots" id="konataMsgDots" aria-label="Выбрать сообщение"></div></div>
   </section>
@@ -329,7 +329,7 @@ resize();requestAnimationFrame(draw)})();
     {tag:'ЗАМЕТКА 04',text:'Если эдит не получается — сделай паузу и посмотри на него свежими глазами.',sub:'И не двигай один и тот же клип туда-сюда ещё 47 раз. Хотя кого я обманываю.'},
     {tag:'ЗАМЕТКА 05',text:'Даже если день вышел странным — это ещё не финал серии.',sub:'Сохраняйся, отдыхай и попробуй снова. У тебя ещё полно серий впереди.'}
   ];
-  try{if(localStorage.getItem('m1zucvr-visited'))messages.unshift({tag:'СНОВА ЗДЕСЬ?',text:'О, ты опять здесь? У тебя сайт в закладках или ты просто потерялся?',sub:'Ладно, располагайся. Коната уже здесь.'});localStorage.setItem('m1zucvr-visited','1')}catch(e){}
+  try{if(localStorage.getItem('m1zucvr-visited'))messages.unshift({tag:'СНОВА ЗДЕСЬ?',text:'Я знала, что ты ещё заглянешь. Ладно, не знала. Но надеялась.',sub:'♡'});localStorage.setItem('m1zucvr-visited','1')}catch(e){}
   let messageIndex=0;
   const msgTag=document.getElementById('konataMsgTag'),msgText=document.getElementById('konataMsgText'),msgSub=document.getElementById('konataMsgSub'),msgCount=document.getElementById('konataMsgCount'),msgDots=document.getElementById('konataMsgDots');
   function showMessage(index){messageIndex=(index+messages.length)%messages.length;const m=messages[messageIndex];msgTag.textContent=m.tag;msgText.textContent=m.text;msgSub.textContent=m.sub;msgCount.textContent=String(messageIndex+1).padStart(2,'0')+' / '+String(messages.length).padStart(2,'0');[...msgDots.children].forEach((dot,i)=>dot.setAttribute('aria-current',String(i===messageIndex)));}
