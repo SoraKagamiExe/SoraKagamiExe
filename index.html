@@ -329,7 +329,7 @@ resize();requestAnimationFrame(draw)})();
     {tag:'ЗАМЕТКА 04',text:'Если эдит не получается — сделай паузу и посмотри на него свежими глазами.',sub:'И не двигай один и тот же клип туда-сюда ещё 47 раз. Хотя кого я обманываю.'},
     {tag:'ЗАМЕТКА 05',text:'Даже если день вышел странным — это ещё не финал серии.',sub:'Сохраняйся, отдыхай и попробуй снова. У тебя ещё полно серий впереди.'}
   ];
-  try{if(localStorage.getItem('m1zucvr-visited'))messages.unshift({tag:'СНОВА ЗДЕСЬ?',text:'Я знала, что ты ещё заглянешь. Ладно, не знала. Но надеялась.',sub:'♡'});localStorage.setItem('m1zucvr-visited','1')}catch(e){}
+  try{if(localStorage.getItem('m1zucvr-visited'))messages.unshift({tag:'СНОВА ЗДЕСЬ?',text:'Я знала, что ты ещё заглянешь. Ладно, не знала. Но надеялась.',sub:'至福♡'});localStorage.setItem('m1zucvr-visited','1')}catch(e){}
   let messageIndex=0;
   const msgTag=document.getElementById('konataMsgTag'),msgText=document.getElementById('konataMsgText'),msgSub=document.getElementById('konataMsgSub'),msgCount=document.getElementById('konataMsgCount'),msgDots=document.getElementById('konataMsgDots');
   function showMessage(index){messageIndex=(index+messages.length)%messages.length;const m=messages[messageIndex];msgTag.textContent=m.tag;msgText.textContent=m.text;msgSub.textContent=m.sub;msgCount.textContent=String(messageIndex+1).padStart(2,'0')+' / '+String(messages.length).padStart(2,'0');[...msgDots.children].forEach((dot,i)=>dot.setAttribute('aria-current',String(i===messageIndex)));}
