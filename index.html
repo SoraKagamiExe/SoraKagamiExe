@@ -285,11 +285,12 @@ resize();requestAnimationFrame(draw)})();
     if(clicks>=5)unlock();
   });}
   const konata=document.getElementById('konataBuddy');
+  const secretSound = new Audio('neco4.mp3');
   const storageKey='m1zucvr-secrets-v1';
   let found=[];
   try{found=JSON.parse(localStorage.getItem(storageKey)||'[]');if(!Array.isArray(found))found=[];found=found.filter(id=>id!=='word')}catch(e){found=[]}
   function updateSecrets(){const count=document.getElementById('secretsCount'),fill=document.getElementById('secretsFill');if(count)count.textContent=found.length+'/5';if(fill)fill.style.width=(found.length/5*100)+'%'}
-  function discover(id,message){if(!found.includes(id)){found.push(id);try{localStorage.setItem(storageKey,JSON.stringify(found))}catch(e){}updateSecrets();announce('✦ Секрет найден! '+found.length+'/5 · '+message)}else if(message)announce(message)}
+  function discover(id,message){if(!found.includes(id)){found.push(id);try{localStorage.setItem(storageKey,JSON.stringify(found))}catch(e){}updateSecrets();try{secretSound.currentTime=0;secretSound.play().catch(()=>{})}catch(e){}announce('✦ Секрет найден! '+found.length+'/5 · '+message)
   updateSecrets();
   // Secret 1: click the clock seven times quickly.
   const liveClock=document.getElementById('liveClock');
