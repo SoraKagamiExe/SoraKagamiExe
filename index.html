@@ -289,7 +289,7 @@ resize();requestAnimationFrame(draw)})();
   let found=[];
   try{found=JSON.parse(localStorage.getItem(storageKey)||'[]');if(!Array.isArray(found))found=[];found=found.filter(id=>id!=='word')}catch(e){found=[]}
   function updateSecrets(){const count=document.getElementById('secretsCount'),fill=document.getElementById('secretsFill');if(count)count.textContent=found.length+'/5';if(fill)fill.style.width=(found.length/5*100)+'%'}
-  function discover(id,message){if(!found.includes(id)){found.push(id);try{localStorage.setItem(storageKey,JSON.stringify(found))}catch(e){}updateSecrets();announce('✦ Секрет найден! '+found.length+'/5 · '+message)
+  function discover(id,message){if(!found.includes(id)){found.push(id);try{localStorage.setItem(storageKey,JSON.stringify(found))}catch(e){}updateSecrets();announce('✦ Секрет найден! '+found.length+'/5 · '+message)}else if(message)announce(message)}
   // Secret 1: click the clock seven times quickly.
   const liveClock=document.getElementById('liveClock');
   if(liveClock){let clockClicks=0,clockReset;liveClock.style.cursor='pointer';liveClock.title='';liveClock.addEventListener('click',()=>{clockClicks++;clearTimeout(clockReset);clockReset=setTimeout(()=>clockClicks=0,2200);if(clockClicks>=7){clockClicks=0;discover('clock','Время остановить нельзя, но секрет ты нашёл. ✦')}})}
