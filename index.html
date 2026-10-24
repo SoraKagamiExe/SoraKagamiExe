@@ -256,7 +256,7 @@ resize();requestAnimationFrame(draw)})();
       countEl.textContent=Number.isFinite(baseCount)?(baseCount+bonusByClick[counterClicks-1]).toLocaleString('en-US'):trueCount;
       counterTimer=setTimeout(()=>{counterClicks=0;refreshCount().catch(()=>{countEl.textContent=trueCount})},2600);
     }else{
-      countEl.textContent='Ты считаешь посетителей или проверяешь, насколько я популярный?';
+      countEl.textContent='Увы';
       // Send one GoatCounter event only on the fifth click; the displayed bonus numbers are visual only.
       const ping=document.createElement('img');ping.width=1;ping.height=1;ping.alt='';ping.style.position='absolute';ping.style.opacity='0';ping.src=base+'/count?p='+encodeURIComponent('/secret-counter-click')+'&t='+encodeURIComponent('Secret counter easter egg')+'&r='+encodeURIComponent(location.href);document.body.appendChild(ping);setTimeout(()=>ping.remove(),1500);
       counterClicks=0;counter.dispatchEvent(new CustomEvent('secret-counter-found'));
