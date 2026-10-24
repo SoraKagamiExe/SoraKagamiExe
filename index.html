@@ -295,14 +295,14 @@ resize();requestAnimationFrame(draw)})();
   if(liveClock){let clockClicks=0,clockReset;liveClock.style.cursor='pointer';liveClock.title='';liveClock.addEventListener('click',()=>{clockClicks++;clearTimeout(clockReset);clockReset=setTimeout(()=>clockClicks=0,2200);if(clockClicks>=7){clockClicks=0;discover('clock','Время остановить нельзя, но секрет ты нашёл. ✦')}})}
   // Secret 2: click the floating Konata five times.
   let konataClicks=0,konataReset;
-  if(konata){konata.addEventListener('click',()=>{konataClicks++;clearTimeout(konataReset);konataReset=setTimeout(()=>konataClicks=0,2400);if(konataClicks>=5){konataClicks=0;discover('konata5','Ты пять раз нажал на меня… тебе точно нечем заняться?')}});konata.addEventListener('dblclick',()=>announce('♪ Pretty Boy Mode ！  секрет найден!'))}
+  if(konata){konata.addEventListener('click',()=>{konataClicks++;clearTimeout(konataReset);konataReset=setTimeout(()=>konataClicks=0,2400);if(konataClicks>=5){konataClicks=0;discover('konata5','Полегче')}});konata.addEventListener('dblclick',()=>announce('♪ Pretty Boy Mode ！  секрет найден!'))}
   // Secret 3: tiny star in the dream card.
   const dreamStar=document.getElementById('dreamStar');if(dreamStar)dreamStar.addEventListener('click',()=>discover('dream','Если ты это нашёл, значит, ты действительно посмотрел сайт, а не только ссылки.'));
   // Secret 4: the counter interaction is wired separately; mark it on the joke text.
   const counterBox=document.querySelector('.visitor-counter');if(counterBox)counterBox.addEventListener('secret-counter-found',()=>discover('counter','Ты слишком внимательно следишь за статистикой!'));
   // Secret 5: click the last footer tag ('responsive') three times quickly.
   const footerTag=document.querySelector('.bottom .tag:last-child');
-  if(footerTag){let tagClicks=0,tagReset;footerTag.style.cursor='pointer';footerTag.title='';footerTag.addEventListener('click',()=>{tagClicks++;clearTimeout(tagReset);tagReset=setTimeout(()=>tagClicks=0,2000);if(tagClicks>=3){tagClicks=0;discover('footer-tag','Даже маленькая подпись может скрывать секрет. ✦')}})}
+  if(footerTag){let tagClicks=0,tagReset;footerTag.style.cursor='pointer';footerTag.title='';footerTag.addEventListener('click',()=>{tagClicks++;clearTimeout(tagReset);tagReset=setTimeout(()=>tagClicks=0,2000);if(tagClicks>=3){tagClicks=0;discover('footer-tag','Ой, а что это ты тут делаешь? ✦')}})}
 })();
 </script>
 
