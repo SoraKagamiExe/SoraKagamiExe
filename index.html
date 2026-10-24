@@ -285,7 +285,6 @@ resize();requestAnimationFrame(draw)})();
     if(clicks>=5)unlock();
   });}
   const konata=document.getElementById('konataBuddy');
-  const secretSound = new Audio('neco4.mp3');
   const storageKey='m1zucvr-secrets-v1';
   let found=[];
   try{found=JSON.parse(localStorage.getItem(storageKey)||'[]');if(!Array.isArray(found))found=[];found=found.filter(id=>id!=='word')}catch(e){found=[]}
