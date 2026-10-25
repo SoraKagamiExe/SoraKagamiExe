@@ -295,7 +295,7 @@ resize();requestAnimationFrame(draw)})();
   if(liveClock){let clockClicks=0,clockReset;liveClock.style.cursor='pointer';liveClock.title='';liveClock.addEventListener('click',()=>{clockClicks++;clearTimeout(clockReset);clockReset=setTimeout(()=>clockClicks=0,2200);if(clockClicks>=7){clockClicks=0;discover('clock','Мы теряем время! ✦')}})}
   // Secret 2: click the floating Konata five times.
   let konataClicks=0,konataReset;
-  if(konata){konata.addEventListener('click',()=>{konataClicks++;clearTimeout(konataReset);konataReset=setTimeout(()=>konataClicks=0,2400);if(konataClicks>=5){konataClicks=0;discover('konata5','Полегче')}});konata.addEventListener('dblclick',()=>announce('♪ Pretty Boy Mode ！  секрет найден!'))}
+  if(konata){konata.addEventListener('click',()=>{konataClicks++;clearTimeout(konataReset);konataReset=setTimeout(()=>konataClicks=0,2400);if(konataClicks>=5){konataClicks=0;discover('konata5','Эй полегче!')}});konata.addEventListener('dblclick',()=>announce('♪ Pretty Boy Mode ！  секрет найден!'))}
   // Secret 3: tiny star in the dream card.
   const dreamStar=document.getElementById('dreamStar');if(dreamStar)dreamStar.addEventListener('click',()=>discover('dream','Что ты тут ищешь?'));
   // Secret 4: the counter interaction is wired separately; mark it on the joke text.
